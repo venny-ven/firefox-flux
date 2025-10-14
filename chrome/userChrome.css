@@ -258,10 +258,10 @@ findbar{height: 90px !important}}
     transition: opacity .2s ease-in-out !important;
 }
 /*
-	The :not(:has(...)) part excludes hovering over pop up windows
+	The :not(:has(#customizationui-widget-panel:hover) part excludes hovering over pop up windows
 	which are for some reason considered to be part of the nav bar
 */
-#nav-bar:hover:not(:has(#customizationui-widget-panel:hover)) #nav-bar-customization-target toolbarbutton
+#navigator-toolbox:hover:not(:has(#customizationui-widget-panel:hover)) #nav-bar-customization-target toolbarbutton
 {
     opacity: 1 !important;
 }
@@ -283,14 +283,23 @@ findbar{height: 90px !important}}
 	overflow: hidden; /* Buttons don't overflow their parent container as it shrinks */
 }
 /* Identity box is the left side: info and permissions; together they are ~57px wide */
-#urlbar:hover #identity-box:not(.notSecure):not(.extensionPage):not(.chromeUI):not(.certErrorPage)
+/*
+	The :not(:has(#customizationui-widget-panel:hover) part excludes hovering over pop up windows
+	which are for some reason considered to be part of the nav bar
+*/
+#navigator-toolbox:hover:not(:has(#customizationui-widget-panel:hover)) #identity-box:not(.notSecure):not(.extensionPage):not(.chromeUI):not(.certErrorPage)
 {
 	max-width: 57px;
 	opacity: 1;
 }
 /* Page action buttons are right side */
-/* Massive width creates an effect of fading out first and THEN collapsing - looks much better */
-#urlbar:hover #page-action-buttons
+/*
+	Massive width creates an effect of fading out first and THEN collapsing - looks much better
+
+	The :not(:has(#customizationui-widget-panel:hover) part excludes hovering over pop up windows
+	which are for some reason considered to be part of the nav bar
+*/
+#navigator-toolbox:hover:not(:has(#customizationui-widget-panel:hover)) #page-action-buttons
 {
 	max-width: 500px; 
 	opacity: 1;
