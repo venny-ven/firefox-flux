@@ -54,9 +54,6 @@
 #tabs-newtab-button:hover, #new-tab-button:hover{transition: .3s !important; color: transparent !important; fill: FieldText !important; opacity: 90%; padding-right: 20px !important;  background: none !important; padding-left: 4px !important; -moz-window-dragging: var(--WindowDraggingFromNewtabButton)}
 #tabs-newtab-button > .toolbarbutton-icon , #new-tab-button > .toolbarbutton-icon{ background: none !important;}
 
-/*  Removes urlbar border/background  */
-#urlbar-background{border: none !important; outline: none !important; transition: .15s !important;}
-
 /*  Cool animation on tab/bookmark icons  */
 /*
 .tabbrowser-tab:not([pinned]):not([selected]) .tab-icon-image ,.bookmark-item .toolbarbutton-icon{opacity: 0!important; transition: .15s !important; width: 0!important; padding-left: 16px!important}
@@ -108,8 +105,7 @@
 #alltabs-button>.toolbarbutton-badge-stack {position: relative!important; border-radius: 0!important; padding: 0!important; border: 0!important; height: calc(100% + 1px)!important; width: 56px!important; margin: 0-2px 0 0!important}
 #alltabs-button>.toolbarbutton-badge-stack::before {content: counter(tabCount); color: var(--toolbarbutton-icon-fill) !important; position: absolute; top: 16.5px; left: 50%; transform: translate(-50%,-30%); padding: 0 3px}
 
-/*  Removes the background from the urlbar while not in use  */
-#urlbar:not(:hover):not([breakout][breakout-extend])>#urlbar-background {box-shadow: none!important; background: #0000 !important}
+
 
 /* Remove suggestion from urlbar popup  */
 /*
@@ -351,3 +347,52 @@ findbar{height: 90px !important}}
 #sidebar-box {
 	min-width: 400px !important;
 }
+
+
+/* urlbar color adjustments */
+	/* when user browses the page... */
+	/* additional [open] tag prevents fading effects to occur on a drop down menu that was left open when switching between tabs.
+	/* this condition should not be on a hover part of the code as then it will never activate */
+#urlbar:not(:hover):not([breakout][breakout-extend][open]) > .urlbar-background {
+	background-color: #0000 !important; /* ACBT matches background color already (if set to 0 contrast), but removing it completely improves transition between tabs. */
+	border: none !important; /* border appears briefly when switching between tabs, this removes it */	
+	transition: .6s ease-out !important; /* comes in effect when mouse cursor leaves the url bar area */
+}
+	
+	/* when user hovers over the url bar, but doesn't click it... */
+#urlbar:hover:not([breakout][breakout-extend]) > .urlbar-background {
+	/*
+		with ATBC the variable --toolbar-field-background-color is dynamic and adjustable with "URL Bar: Background" property. Code below makes this backround appear on hover instead of always (or never if set to 0 contrast)
+		when not running ATBC this color is always darker than the rest of the interface, and is normally always there.
+	*/
+	background-color: var(--toolbar-field-background-color) !important; /* tints the url bar on hover */
+	border: none !important; /* border appears briefly when hovering, this removes it */	
+	transition: .6 ease-out !important; /* comes in effect when mouse cursor enters the url bar area. */
+}
+
+	/* [supress-focus-border] is an odd condition i removed, makes things only apply when the window is in focus */ 
+	/* --toolbar-field-focus-background-color is dynamic and adjustable with ATBC as a "URL Bar: Background on focus property. With ATBC this code is redundant */
+	/* instead it exists for when there's no ATBC, in which case this color is always lighter that the rest of the interface */
+#urlbar[focused]:not([breakout][breakout-extend]) > .urlbar-background {
+	outline: none !important; /* removes very bright text-field border. ACBT colors it with OS color, its okay on its own, but because im applying transitions to url it looks ugly, and its difficult to single out. its brightness also makes animations less visible */
+	box-shadow: none !important; /* removes urlbar under-shadow visible on light pages when url is selected / edited */
+	background-color: var(--toolbar-field-focus-background-color) !important;
+	/*
+		a fade in transition for a drop down menu.
+		this might not be that great of a method. im just fading in the background of the menu, not the entire menu, which is a different element entirely. 
+		t makes for an odd look. the effect also doesn't occur in some cases depending on how the drop down menu is evoked
+	*/
+    /*transition: .3s linear !important;*/
+}
+
+	/* trying to develop code to not need this, so that it is compatible with both ATBC and no ATBC
+/* If no ATBC is running these should be used instead of three above */
+/*  Removes the background from the urlbar while not in use  */
+/*#urlbar:not(:hover):not([breakout][breakout-extend])>.urlbar-background {box-shadow: none !important; background: #0000 !important; transition: .6s ease-out !important}
+/*  Removes urlbar border/background  */
+/*/* perhaps a more general application like this fixes the drop down fade in not working consistently */
+/*.urlbar-background{border: none !important; outline: none !important; transition: .3s !important;}
+
+	
+/* Desaturate favicons to make them more visible against toolbar background of any color (support for Adaptive Tab Bar Color extension) */
+/*.tab-icon-image{ filter: invert(40%) contrast(250%) saturate(250%) !important; }
