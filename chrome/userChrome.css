@@ -251,16 +251,16 @@ findbar{height: 90px !important}}
   }
 }
 
-/* Fade out buttons like extensions and downloads unless the nav bar is hovered over */
-/*
-	The :not(:has(...)) part excludes hovering over pop up windows
-	which are for some reason considered to be part of the nav bar
-*/
-#nav-bar #nav-bar-customization-target toolbarbutton
+/* Fade out buttons like extensions and downloads unless the nav bar is hovered over. Dont fade out search badge*/
+#nav-bar #nav-bar-customization-target toolbarbutton:not(.searchmode-switcher)
 {
     opacity: 0 !important;
     transition: opacity .2s ease-in-out !important;
 }
+/*
+	The :not(:has(...)) part excludes hovering over pop up windows
+	which are for some reason considered to be part of the nav bar
+*/
 #nav-bar:hover:not(:has(#customizationui-widget-panel:hover)) #nav-bar-customization-target toolbarbutton
 {
     opacity: 1 !important;
