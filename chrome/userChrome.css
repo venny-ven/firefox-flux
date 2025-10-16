@@ -289,6 +289,25 @@ findbar{height: 90px !important}}
 
 
 
+/* ------------------------------------ Sharp corners ------------------------------------ */
+
+
+
+
+.tab-background {
+  border-radius: 0px;
+}
+
+/* Need to add outlines to everything or remove paddings for it to look good or something */
+/*
+:root {
+		--toolbarbutton-border-radius: 0px !important;
+}
+*/
+
+
+
+
 /* ------------------------------------ Tabs ------------------------------------ */
 
 
@@ -300,6 +319,8 @@ findbar{height: 90px !important}}
 		outline: 0px !important;
 	}
 }
+
+
 
 
 
