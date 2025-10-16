@@ -349,50 +349,65 @@ findbar{height: 90px !important}}
 }
 
 
-/* urlbar color adjustments */
-	/* when user browses the page... */
-	/* additional [open] tag prevents fading effects to occur on a drop down menu that was left open when switching between tabs.
-	/* this condition should not be on a hover part of the code as then it will never activate */
+
+/* ------------------------------------ URL bar adjustments ------------------------------------
+
+
+
+/* Remove background from the URL bar when not hovered over */
+/*
+	ACBT can match background color already if "URL Bar: Background" is set to 0 contrast
+	But I use that feature of ACBT to color it on hover instead
+	And I remove the background for non hover state myself
+*/
 #urlbar:not(:hover):not([breakout][breakout-extend][open]) > .urlbar-background {
-	background-color: #0000 !important; /* ACBT matches background color already (if set to 0 contrast), but removing it completely improves transition between tabs. */
-	border: none !important; /* border appears briefly when switching between tabs, this removes it */	
-	transition: .6s ease-out !important; /* comes in effect when mouse cursor leaves the url bar area */
+	background-color: var(--toolbar-bgcolor) !important; 
+	
+	/* This transition comes in effect when mouse cursor leaves the url bar area */
+	transition: .6s ease-out !important;
 }
 	
-	/* when user hovers over the url bar, but doesn't click it... */
-#urlbar:hover:not([breakout][breakout-extend]) > .urlbar-background {
-	/*
-		with ATBC the variable --toolbar-field-background-color is dynamic and adjustable with "URL Bar: Background" property. Code below makes this backround appear on hover instead of always (or never if set to 0 contrast)
-		when not running ATBC this color is always darker than the rest of the interface, and is normally always there.
-	*/
-	background-color: var(--toolbar-field-background-color) !important; /* tints the url bar on hover */
-	border: none !important; /* border appears briefly when hovering, this removes it */	
-	transition: .6 ease-out !important; /* comes in effect when mouse cursor enters the url bar area. */
+/* Add transition when mouse cursor enters the URL bar area */
+/*
+	This is where ACBT applies its "URL Tab: Background" color
+	I limit it to only appear on hover with code above
+	So it's not necessary to set the color myself, I just add the transition
+*/
+#urlbar:hover > .urlbar-background {
+	transition: .6s ease-out !important;
 }
 
-	/* [supress-focus-border] is an odd condition i removed, makes things only apply when the window is in focus */ 
-	/* --toolbar-field-focus-background-color is dynamic and adjustable with ATBC as a "URL Bar: Background on focus property. With ATBC this code is redundant */
-	/* instead it exists for when there's no ATBC, in which case this color is always lighter that the rest of the interface */
-#urlbar[focused]:not([breakout][breakout-extend]) > .urlbar-background {
-	outline: none !important; /* removes very bright text-field border. ACBT colors it with OS color, its okay on its own, but because im applying transitions to url it looks ugly, and its difficult to single out. its brightness also makes animations less visible */
-	box-shadow: none !important; /* removes urlbar under-shadow visible on light pages when url is selected / edited */
-	background-color: var(--toolbar-field-focus-background-color) !important;
-	/*
-		a fade in transition for a drop down menu.
-		this might not be that great of a method. im just fading in the background of the menu, not the entire menu, which is a different element entirely. 
-		t makes for an odd look. the effect also doesn't occur in some cases depending on how the drop down menu is evoked
-	*/
-    /*transition: .3s linear !important;*/
+/* Remove selection outline and box shadow and add a clean border when URL bar is focused */
+/*
+	Firefox gives a bright thick outline to its URL bar when you select it (focus it)
+	ACBT colors it with your OS theme, but I still don't like it
+	Instead I apply a border that can be customized with ACBT
+	ACBT already offers a border but in focused state it is removed
+	I guess to make way for the outline
+*/
+#urlbar[focused]:not([open]) > .urlbar-background {
+	outline: none !important;
+	box-shadow: none !important;
+	border-color: var(--toolbar-field-border-color) !important;
 }
 
-	/* trying to develop code to not need this, so that it is compatible with both ATBC and no ATBC
-/* If no ATBC is running these should be used instead of three above */
-/*  Removes the background from the urlbar while not in use  */
-/*#urlbar:not(:hover):not([breakout][breakout-extend])>.urlbar-background {box-shadow: none !important; background: #0000 !important; transition: .6s ease-out !important}
-/*  Removes urlbar border/background  */
-/*/* perhaps a more general application like this fixes the drop down fade in not working consistently */
-/*.urlbar-background{border: none !important; outline: none !important; transition: .3s !important;}
+/* Remove the border around URL bar when not focused */
+#urlbar:not([focused]):not([open]) > .urlbar-background {
+	border-color: #0000 !important;
+}
 
-	
+
+
+/* ------------------------------------ ... ------------------------------------
+
+
+
 /* Desaturate favicons to make them more visible against toolbar background of any color (support for Adaptive Tab Bar Color extension) */
-/*.tab-icon-image{ filter: invert(40%) contrast(250%) saturate(250%) !important; }
+/*.tab-icon-image{ filter: invert(40%) contrast(250%) saturate(250%) !important; } */
+
+/* Remove shadow around selected tab */
+.tab-background {
+	&:is([selected], [multiselected]) {
+		box-shadow: none !important;
+	}
+}
