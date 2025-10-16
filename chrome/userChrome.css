@@ -274,14 +274,16 @@ findbar{height: 90px !important}}
 	The :not(:has(#customizationui-widget-panel:hover) part excludes All-tabs pop up window
 	All-tabs pop up window is the only pop up that is part of the navigator toolbox
 */
-#nav-bar #nav-bar-customization-target toolbarbutton:not(.searchmode-switcher):not(#stop-button)
+#nav-bar #nav-bar-customization-target toolbarbutton:not(.searchmode-switcher):not(#stop-button),
+.urlbar-revert-button-container /* A button that shows up on Google pages that reverts the URL bar to an address instead of a search query */
 {
 	opacity: 0 !important;
 	transition: opacity .4s ease-in-out !important;
 }
 
 /* Reveal the buttons on hover */
-#navigator-toolbox:hover:not(:has(#customizationui-widget-panel:hover)) #nav-bar-customization-target toolbarbutton
+#navigator-toolbox:hover:not(:has(#customizationui-widget-panel:hover)) #nav-bar-customization-target toolbarbutton,
+#navigator-toolbox:hover:not(:has(#customizationui-widget-panel:hover)) .urlbar-revert-button-container
 {
 	opacity: 1 !important;
 }
@@ -352,7 +354,9 @@ findbar{height: 90px !important}}
 /* Remove unimportant icons on the right side of the URL bar */
 #reader-mode-button,
 #taskbar-tabs-button, /* Button to turn a page into an app-like instance */
-#urlbar-zoom-button {
+#urlbar-zoom-button,
+#pageActionButton
+{
 		display: none;
 }
 
@@ -363,7 +367,8 @@ findbar{height: 90px !important}}
 	This makes icons that do get hidden have a more consistent reveal animation
 */
 #identity-box:not(.notSecure):not(.extensionPage):not(.chromeUI):not(.certErrorPage), /* Lock, permissions, location icons. Skipping special badges */
-#page-action-buttons { /* Right side icons like favorites */
+#page-action-buttons /* Right side icons like favorites */
+{
 	opacity: 0;
 	max-width: 0px;
 	
@@ -375,7 +380,8 @@ findbar{height: 90px !important}}
 }
 
 /* Separate hiding configuration for the shield icon because it's designed goofy */
-#tracking-protection-icon-container { /* Shield icon */
+#tracking-protection-icon-container /* Shield icon */
+{
 	opacity: 0;
 	max-width: 0px;
 	padding-inline: 0px !important; /* Unlike other elements on the URL bar, this one has padding, and I need to animate it too */
