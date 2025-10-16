@@ -268,7 +268,7 @@ findbar{height: 90px !important}}
 
 /* Hide buttons like extensions and downloads */
 /*
-  Excluding search badge (Search in Youtube, Google, etc.) and X stop button
+	Excluding search badge (Search in Youtube, Google, etc.) and X stop button
 	
 	Icons are revealed when the user hovers anywhere at the top - the navigator toolbox
 	The :not(:has(#customizationui-widget-panel:hover) part excludes All-tabs pop up window
@@ -277,7 +277,7 @@ findbar{height: 90px !important}}
 #nav-bar #nav-bar-customization-target toolbarbutton:not(.searchmode-switcher):not(#stop-button)
 {
 	opacity: 0 !important;
-	transition: opacity .2s ease-in-out !important;
+	transition: opacity .4s ease-in-out !important;
 }
 
 /* Reveal the buttons on hover */
@@ -295,13 +295,22 @@ findbar{height: 90px !important}}
 
 
 .tab-background {
-  border-radius: 0px;
+	border-radius: 0px;
 }
 
-/* Need to add outlines to everything or remove paddings for it to look good or something */
+/* WIP section */
 /*
 :root {
-		--toolbarbutton-border-radius: 0px !important;
+	--toolbarbutton-border-radius: 0px !important;
+}
+
+.toolbarbutton-icon:not(#PanelUI-menu-button .toolbarbutton-icon):not(#alltabs-button .toolbarbutton-icon),
+.toolbarbutton-badge-stack
+{
+	outline-width: 1px !important;
+	outline-style: solid !important;
+	outline-color: var(--tab-selected-outline-color) !important;
+	transition: .2s ease-out;
 }
 */
 
@@ -320,7 +329,12 @@ findbar{height: 90px !important}}
 	}
 }
 
-
+/* Remove shadow around selected tab */
+.tab-background {
+	&:is([selected], [multiselected]) {
+		box-shadow: none !important;
+	}
+}
 
 
 
@@ -398,7 +412,8 @@ findbar{height: 90px !important}}
 	opacity: 1;
 }
 
-
+/* Desaturate favicons to make them more visible against toolbar background of any color (support for Adaptive Tab Bar Color extension) */
+/*.tab-icon-image{ filter: invert(40%) contrast(250%) saturate(250%) !important; } */
 
 
 
@@ -432,10 +447,10 @@ findbar{height: 90px !important}}
 	}
 	/* Remove color from the URL shield icon by making it black and inverting into white */
 	.urlbar-input-container[pageproxystate="valid"] > #tracking-protection-icon-container > #tracking-protection-icon-box {
-    &[active] {
-      filter: brightness(0) invert(1);
-    }
-  }
+		&[active] {
+			filter: brightness(0) invert(1);
+		}
+	}
 
 }
 :root[style*="--toolbarbutton-icon-fill: rgb(0, 0, 0)"] /* If toolbar buttons are black... */
@@ -451,9 +466,9 @@ findbar{height: 90px !important}}
 		}
 	}
 	/* Remove color from the URL shield icon by making it black */
-	 #tracking-protection-icon-box {
-    filter: brightness(0);
-  }
+	#tracking-protection-icon-box {
+		filter: brightness(0);
+	}
 }
 
 /* Disable default behavior of hiding a favicon for pages that don't provide one */
@@ -464,6 +479,13 @@ findbar{height: 90px !important}}
 /* Increase width of sidebar: bookmark, history, etc. NOT the vertical taskbar that sidebar pops out of */
 #sidebar-box {
 	min-width: 400px !important;
+}
+
+/* Remove gamer rainbow separator from application menu */
+.PanelUI-subView {
+	& toolbarseparator.proton-zap::before {
+		border-image: none !important;
+	}
 }
 
 
@@ -516,7 +538,7 @@ findbar{height: 90px !important}}
 	border-color: #0000 !important;
 }
 	
-/*  Removes dead space on the left and right of the URL bar  */
+/* Removes dead space on the left and right of the URL bar */
 #urlbar-container {
 	margin-left: 1px !important;
 	margin-right: 1px !important;
@@ -526,25 +548,4 @@ findbar{height: 90px !important}}
 
 
 /* ------------------------------------ ... ------------------------------------ */
-
-
-
-
-/* Desaturate favicons to make them more visible against toolbar background of any color (support for Adaptive Tab Bar Color extension) */
-/*.tab-icon-image{ filter: invert(40%) contrast(250%) saturate(250%) !important; } */
-
-/* Remove shadow around selected tab */
-.tab-background {
-	&:is([selected], [multiselected]) {
-		box-shadow: none !important;
-	}
-}
-
-/* Remove gamer rainbow separator from application menu */
-.PanelUI-subView {
-  & toolbarseparator.proton-zap::before {
-    border-image: none !important;
-  }
-}
-
 
