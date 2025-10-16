@@ -9,7 +9,7 @@
 
 /* #reload-button, #stop-button{display:none !important}  /*  Removes the reload/stop button  */
 
-#back-button, #forward-button{display: none !important}  /*  Removes the forward/back button  */
+
 
 .tab-close-button{display: none !important}  /*  Removes the x-button from the tabs  */
 
@@ -35,15 +35,13 @@
 #nav-bar, #PersonalToolbar{background-color: #0000 !important;background-image: none !important; box-shadow: none !important} #nav-bar{margin-left: 3px; border-top: none !important} .tab-background, .tab-stack { min-height: calc(var(--TabsHeight) * 1px) !important}
 
 /*  Removes rounding from the top corners,   */
-#navigator-toolbox{appearance: none !important; border-radius: 0 !important}
-#navigator-toolbox-background{background-color: Field !important; background-image: none !important;  appearance: none !important; border-radius: 0 !important}
+/*#navigator-toolbox{appearance: none !important; border-radius: 0 !important}
+/*#navigator-toolbox-background{background-color: Field !important; background-image: none !important;  appearance: none !important; border-radius: 0 !important}
+/*#navigator-toolbox:-moz-window-inactive{filter: contrast(90%);}  /*  Fades window while not in focus */
 
-#navigator-toolbox-background:-moz-window-inactive{filter: contrast(90%);}  /*  Fades window while not in focus */
+
 :root{--tabpanel-background-color: -moz-Dialog !important}  /*  Removes flash before loading pages  */
 
-/*  Removes annoying buttons and spaces */
-#firefox-view-button, #save-to-pocket-button, #tracking-protection-icon-container, .titlebar-spacer[type="pre-tabs"], .titlebar-spacer[type="post-tabs"]{display: none !important}
-#tabbrowser-tabs{border-inline-start-width: 0!important}
 
 /*  Makes some buttons nicer  */
 #PanelUI-menu-button, #unified-extensions-button, #reload-button, #stop-button {padding: 2px !important}
@@ -62,7 +60,7 @@
 */
 
 /*  Removes space after pinned tabs  */
-#tabbrowser-tabs[haspinnedtabs]:not([positionpinnedtabs])>#tabbrowser-arrowscrollbox>.tabbrowser-tab[first-visible-unpinned-tab] {margin-inline-start: 0!important}
+/*#tabbrowser-tabs[haspinnedtabs]:not([positionpinnedtabs])>#tabbrowser-arrowscrollbox>.tabbrowser-tab[first-visible-unpinned-tab] {margin-inline-start: 10!important}
 
 /*  X-button on the tabs  */
 .tabbrowser-tab:not(:hover) .tab-close-button{opacity: 0% !important; transition: .3s !important; display: -moz-box !important;}
@@ -71,13 +69,8 @@
 .tab-close-button:hover{opacity: 100% !important; transition: .3s !important; background: none !important; cursor: pointer; display: -moz-box !important;}
 .tab-close-button[selected]:hover{opacity: 100% !important; transition: .3s !important; background: none !important; cursor: pointer; display: -moz-box !important;}
 
-/*  Removes annoying border  */
-/*
-#navigator-toolbox{border:none !important;}
-*/
-
 /*  Titlebar button fix#6322  */
-.titlebar-buttonbox-container{-moz-box-ordinal-group: auto;}
+/*.titlebar-buttonbox-container{-moz-box-ordinal-group: auto;}
 .titlebar-button > .toolbarbutton-icon:-moz-lwtheme{-moz-context-properties: fill, stroke !important;}
 .titlebar-button > .toolbarbutton-icon {display: flex !important; height:unset !important; width: unset !important; appearance: -moz-window-decorations !important;}
 .titlebar-buttonbox{appearance: none !important}
@@ -86,21 +79,21 @@
 .titlebar-button::before{content: none !important}
 
 /*  Titlebar buttons  -  Minimize button  */
-.titlebar-min {fill: var(--toolbarbutton-icon-fill) !important; -moz-context-properties: fill !important; list-style-image: url("data:image/svg+xml,%3Csvg width='40' height='30' version='1.1' viewBox='0 0 40 30' xmlns='http://www.w3.org/2000/svg'%3E%3Ctitle%3EVetro%3C/title%3E%3Crect transform='matrix(3.7795 0 0 3.7795 -39.998 -533.51)' x='14.552' y='145.13' width='2.6458' height='.26458' ry='3.1658e-6' fill='context-fill' style='paint-order:stroke fill markers'/%3E%3C/svg%3E%0A")!important;  border-radius: 0!important; margin: 0!important; padding: 0!important; border: 0!important; height: 100%!important; align-content: center!important; width: 56px!important; appearance: none!important}.titlebar-min:hover {background-color: color-mix(in srgb,currentColor 17%,transparent)!important}.titlebar-min:active {background-color: color-mix(in srgb,currentColor 30%,transparent)!important}
+/*titlebar-min {fill: var(--toolbarbutton-icon-fill) !important; -moz-context-properties: fill !important; list-style-image: url("data:image/svg+xml,%3Csvg width='40' height='30' version='1.1' viewBox='0 0 40 30' xmlns='http://www.w3.org/2000/svg'%3E%3Ctitle%3EVetro%3C/title%3E%3Crect transform='matrix(3.7795 0 0 3.7795 -39.998 -533.51)' x='14.552' y='145.13' width='2.6458' height='.26458' ry='3.1658e-6' fill='context-fill' style='paint-order:stroke fill markers'/%3E%3C/svg%3E%0A")!important;  border-radius: 0!important; margin: 0!important; padding: 0!important; border: 0!important; height: 100%!important; align-content: center!important; width: 56px!important; appearance: none!important}.titlebar-min:hover {background-color: color-mix(in srgb,currentColor 17%,transparent)!important}.titlebar-min:active {background-color: color-mix(in srgb,currentColor 30%,transparent)!important}
 
 /*  Titlebar buttons  -  Maximize button  */
-.titlebar-max {fill: var(--toolbarbutton-icon-fill) !important; -moz-context-properties: fill !important; list-style-image: url("data:image/svg+xml,%3Csvg width='40' height='30' version='1.1' viewBox='0 0 40 30' xmlns='http://www.w3.org/2000/svg'%3E%3Ctitle%3EVetro%3C/title%3E%3Cpath transform='matrix(3.7795 0 0 3.7795 -101 -533.51)' d='m30.692 143.81v2.6458h2.6458v-2.6458zm0.26458 0.26459h2.1167v2.1167h-2.1167z' fill='context-fill' style='paint-order:stroke fill markers'/%3E%3C/svg%3E")!important;  border-radius: 0!important; margin: 0!important; padding: 0!important; border: 0!important; height: 100%!important; align-content: center!important; width: 56px!important; appearance: none!important}.titlebar-max:hover {background-color: color-mix(in srgb,currentColor 17%,transparent)!important}.titlebar-max:active {background-color: color-mix(in srgb,currentColor 30%,transparent)!important}
+/*.titlebar-max {fill: var(--toolbarbutton-icon-fill) !important; -moz-context-properties: fill !important; list-style-image: url("data:image/svg+xml,%3Csvg width='40' height='30' version='1.1' viewBox='0 0 40 30' xmlns='http://www.w3.org/2000/svg'%3E%3Ctitle%3EVetro%3C/title%3E%3Cpath transform='matrix(3.7795 0 0 3.7795 -101 -533.51)' d='m30.692 143.81v2.6458h2.6458v-2.6458zm0.26458 0.26459h2.1167v2.1167h-2.1167z' fill='context-fill' style='paint-order:stroke fill markers'/%3E%3C/svg%3E")!important;  border-radius: 0!important; margin: 0!important; padding: 0!important; border: 0!important; height: 100%!important; align-content: center!important; width: 56px!important; appearance: none!important}.titlebar-max:hover {background-color: color-mix(in srgb,currentColor 17%,transparent)!important}.titlebar-max:active {background-color: color-mix(in srgb,currentColor 30%,transparent)!important}
 
 /*  Titlebar buttons  -  Restore button  */
-.titlebar-restore {fill: var(--toolbarbutton-icon-fill) !important; -moz-context-properties: fill !important; list-style-image: url("data:image/svg+xml,%3Csvg width='40' height='30' version='1.1' viewBox='0 0 40 30' xmlns='http://www.w3.org/2000/svg'%3E%3Ctitle%3EVetro%3C/title%3E%3Cpath d='m17.001 10.016v2h-2v8.0001h8.0001v-2h2v-8.0001zm0.99998 1h6v6h-0.99998v-4.9999h-4.9999zm-2 2h6v6h-6z' fill='context-fill' stroke-width='3.7795' style='paint-order:stroke fill markers'/%3E%3C/svg%3E%0A")!important;  border-radius: 0!important; margin: 0!important; padding: 0!important; border: 0!important; height: 100%!important; width: 56px!important; appearance: none!important}.titlebar-restore:hover {background-color: color-mix(in srgb,currentColor 17%,transparent)!important}.titlebar-restore:active {background-color: color-mix(in srgb,currentColor 30%,transparent)!important}
+/*.titlebar-restore {fill: var(--toolbarbutton-icon-fill) !important; -moz-context-properties: fill !important; list-style-image: url("data:image/svg+xml,%3Csvg width='40' height='30' version='1.1' viewBox='0 0 40 30' xmlns='http://www.w3.org/2000/svg'%3E%3Ctitle%3EVetro%3C/title%3E%3Cpath d='m17.001 10.016v2h-2v8.0001h8.0001v-2h2v-8.0001zm0.99998 1h6v6h-0.99998v-4.9999h-4.9999zm-2 2h6v6h-6z' fill='context-fill' stroke-width='3.7795' style='paint-order:stroke fill markers'/%3E%3C/svg%3E%0A")!important;  border-radius: 0!important; margin: 0!important; padding: 0!important; border: 0!important; height: 100%!important; width: 56px!important; appearance: none!important}.titlebar-restore:hover {background-color: color-mix(in srgb,currentColor 17%,transparent)!important}.titlebar-restore:active {background-color: color-mix(in srgb,currentColor 30%,transparent)!important}
 
 /*  Titlebar buttons  -  Close button  */
-.titlebar-close:not(:hover, :active) {fill: var(--toolbarbutton-icon-fill) !important; -moz-context-properties: fill !important; list-style-image: url("data:image/svg+xml,%3Csvg width='40' height='30' version='1.1' viewBox='0 0 40 30' xmlns='http://www.w3.org/2000/svg'%3E%3Ctitle%3EVetro%3C/title%3E%3Cpath transform='matrix(3.7796 0 0 3.7795 -165 -533.51)' d='m47.718 143.71-0.18707 0.18706 1.2294 1.2294-1.2294 1.2289 0.18707 0.18707 1.2294-1.2289 1.2289 1.2289 0.18707-0.18707-1.2289-1.2289 1.2289-1.2294-0.18707-0.18706-1.2289 1.2294z' fill='context-fill' style='paint-order:stroke fill markers'/%3E%3C/svg%3E%0A")!important; margin: 0 !important; padding: 0!important; border: 0!important; border-radius: 0!important; height: 100%!important; width: 56px!important; appearance: none!important}
+/*.titlebar-close:not(:hover, :active) {fill: var(--toolbarbutton-icon-fill) !important; -moz-context-properties: fill !important; list-style-image: url("data:image/svg+xml,%3Csvg width='40' height='30' version='1.1' viewBox='0 0 40 30' xmlns='http://www.w3.org/2000/svg'%3E%3Ctitle%3EVetro%3C/title%3E%3Cpath transform='matrix(3.7796 0 0 3.7795 -165 -533.51)' d='m47.718 143.71-0.18707 0.18706 1.2294 1.2294-1.2294 1.2289 0.18707 0.18707 1.2294-1.2289 1.2289 1.2289 0.18707-0.18707-1.2289-1.2289 1.2289-1.2294-0.18707-0.18706-1.2289 1.2294z' fill='context-fill' style='paint-order:stroke fill markers'/%3E%3C/svg%3E%0A")!important; margin: 0 !important; padding: 0!important; border: 0!important; border-radius: 0!important; height: 100%!important; width: 56px!important; appearance: none!important}
 .titlebar-close:hover {background-color: #f44!important; fill: var(--toolbarbutton-icon-fill) !important; -moz-context-properties: fill !important; list-style-image: url("data:image/svg+xml,%3Csvg width='40' height='30' version='1.1' viewBox='0 0 40 30' xmlns='http://www.w3.org/2000/svg'%3E%3Ctitle%3EVetro%3C/title%3E%3Cpath transform='matrix(3.7796 0 0 3.7795 -165 -533.51)' d='m47.718 143.71-0.18707 0.18706 1.2294 1.2294-1.2294 1.2289 0.18707 0.18707 1.2294-1.2289 1.2289 1.2289 0.18707-0.18707-1.2289-1.2289 1.2289-1.2294-0.18707-0.18706-1.2289 1.2294z' fill='context-fill' style='paint-order:stroke fill markers;fill:%23ffffff' /%3E%3C/svg%3E%0A")!important;  margin: 0 !important; padding: 0!important; border: 0!important; border-radius: 0!important; height: 100%!important; width: 56px!important; appearance: none!important}
 .titlebar-close:active {background-color: #f33!important;  fill: var(--toolbarbutton-icon-fill) !important; -moz-context-properties: fill !important; list-style-image: url("data:image/svg+xml,%3Csvg width='40' height='30' version='1.1' viewBox='0 0 40 30' xmlns='http://www.w3.org/2000/svg'%3E%3Ctitle%3EVetro%3C/title%3E%3Cpath transform='matrix(3.7796 0 0 3.7795 -165 -533.51)' d='m47.718 143.71-0.18707 0.18706 1.2294 1.2294-1.2294 1.2289 0.18707 0.18707 1.2294-1.2289 1.2289 1.2289 0.18707-0.18707-1.2289-1.2289 1.2289-1.2294-0.18707-0.18706-1.2289 1.2294z' fill='context-fill' style='paint-order:stroke fill markers;fill:%23ffffff' /%3E%3C/svg%3E%0A")!important;  margin: 0 !important; padding: 0!important; border: 0!important; border-radius: 0!important; height: 100%!important; width: 56px!important; appearance: none!important}
 
 /*  Alltabs button  */
-#TabsToolbar-customization-target {counter-reset: tabCount}.tabbrowser-tab {counter-increment: tabCount}
+/*#TabsToolbar-customization-target {counter-reset: tabCount}.tabbrowser-tab {counter-increment: tabCount}
 #alltabs-button>.toolbarbutton-badge-stack>.toolbarbutton-icon {fill: var(--toolbarbutton-icon-fill) !important; -moz-context-properties: fill !important; list-style-image: url("data:image/svg+xml,%3Csvg width='40' height='30' version='1.1' viewBox='0 0 40 30' xmlns='http://www.w3.org/2000/svg'%3E%3Ctitle%3EVetro%3C/title%3E%3Cpath transform='translate(49,-60)' d='m-29 78.888-7.0703-7.0703 0.70703-0.70703 6.3633 6.3633 6.3633-6.3633 0.70703 0.70703-6.3633 6.3633z' fill='context-fill' style='paint-order:stroke fill markers'/%3E%3C/svg%3E"); overflow: hidden!important; padding: 0!important; border: 0!important; width: 40px!important; height: calc(100% + 1px)!important; margin: 0 -2px 0 0!important; transform: translate(20%,15%); padding: 0 3px}
 #alltabs-button>.toolbarbutton-badge-stack {position: relative!important; border-radius: 0!important; padding: 0!important; border: 0!important; height: calc(100% + 1px)!important; width: 56px!important; margin: 0-2px 0 0!important}
 #alltabs-button>.toolbarbutton-badge-stack::before {content: counter(tabCount); color: var(--toolbarbutton-icon-fill) !important; position: absolute; top: 16.5px; left: 50%; transform: translate(-50%,-30%); padding: 0 3px}
@@ -114,19 +107,24 @@
 #urlbar-anon-search-settings{margin-inline-start: 0px !important}
 */
 
-/*  Makes the space between the reload button and the urlbar less akwardly large  */
-#urlbar-container{margin-left: 1px !important}
+
 
 /*  Makes the sidebar a little nicer  */
 #sidebar-splitter{display: none}
 #sidebar-header{padding-bottom: 0!important; border-bottom: 0!important}
 
 /*  The thing in the bottom with links  */
-#statuspanel-label{background-color: -moz-Dialog!important; border-color: transparent!important; border-radius: 5px !important; color: white !important; margin: 0 0 2.5px 2px!important; padding: 5px!important; opacity: 100%;}
+#statuspanel-label {
+	background-color: -moz-Dialog!important;
+	border-color: transparent!important;
+	border-radius: 5px !important;
+	color: white !important;
+	margin: 0 0 2.5px 2px!important;
+	padding: 5px!important;
+	opacity: 100%;
+}
 
 
-/*  Removes the annoying rainbow thing from the hamburger  */
-#appMenu-fxa-separator{border-image:none !important;}
 
 /*  Navbar buttons order  */
 #PanelUI-button, #wrapper-PanelUI-button{order: -2 !important}
@@ -238,68 +236,156 @@ findbar{height: 90px !important}}
 #mainPopupSet #tab-preview-panel .tab-preview-thumbnail-container canvas{border-radius: 8px;}
 #tab-preview-panel {--panel-border-radius: 8px!important}
 
-/* My changes */
+
+
+
+/* ------------------------------------ Good Bali's changes ------------------------------------ */
+
+
+
+
+/* Removes annoying buttons and spaces */
+/*#save-to-pocket-button, /* cant find */
+.titlebar-spacer[type="pre-tabs"],
+.titlebar-spacer[type="post-tabs"] {
+	display: none !important;
+}
+
+
+/*#tabbrowser-tabs {
+	border-inline-start-width: 0 !important;} /* cant find */
+
+/* Remove forward & back button */
+#back-button, #forward-button{display: none !important}
+
+
+
+
+/* ------------------------------------ Toolbox buttons ------------------------------------ */
+
+
+
+
+/* Hide buttons like extensions and downloads */
+/*
+  Excluding search badge (Search in Youtube, Google, etc.) and X stop button
+	
+	Icons are revealed when the user hovers anywhere at the top - the navigator toolbox
+	The :not(:has(#customizationui-widget-panel:hover) part excludes All-tabs pop up window
+	All-tabs pop up window is the only pop up that is part of the navigator toolbox
+*/
+#nav-bar #nav-bar-customization-target toolbarbutton:not(.searchmode-switcher):not(#stop-button)
+{
+	opacity: 0 !important;
+	transition: opacity .2s ease-in-out !important;
+}
+
+/* Reveal the buttons on hover */
+#navigator-toolbox:hover:not(:has(#customizationui-widget-panel:hover)) #nav-bar-customization-target toolbarbutton
+{
+	opacity: 1 !important;
+}
+
+
+
+
+/* ------------------------------------ Tabs ------------------------------------ */
+
+
+
 
 /* Remove outline around tab group label */
 .tab-group-label {
-  tab-group[collapsed] > .tab-group-label-container > & {
-    outline: 0px !important;
-  }
+	tab-group[collapsed] > .tab-group-label-container > & {
+		outline: 0px !important;
+	}
 }
 
-/* Fade out buttons like extensions and downloads unless the nav bar is hovered over. Dont fade out search badge*/
-#nav-bar #nav-bar-customization-target toolbarbutton:not(.searchmode-switcher)
-{
-    opacity: 0 !important;
-    transition: opacity .2s ease-in-out !important;
-}
-/*
-	The :not(:has(#customizationui-widget-panel:hover) part excludes hovering over pop up windows
-	which are for some reason considered to be part of the nav bar
-*/
-#navigator-toolbox:hover:not(:has(#customizationui-widget-panel:hover)) #nav-bar-customization-target toolbarbutton
-{
-    opacity: 1 !important;
+
+
+
+/* ------------------------------------ URL Bar Icons ------------------------------------ */
+
+
+
+
+/* Remove shield icon - not useful. I left the code that animates it, so if you want it, just comment this */
+#tracking-protection-icon-container {
+		display: none;
 }
 
-/* Collapse and fade out all buttons on the URL bar*/
+/* Remove unimportant icons on the right side of the URL bar */
+#reader-mode-button,
+#taskbar-tabs-button, /* Button to turn a page into an app-like instance */
+#urlbar-zoom-button {
+		display: none;
+}
+
+/* Collapse all icons on the URL bar */
 /*
-	Some pages contain a special badge like "Not Secure", "Firefox", and "Extension(...)"
-	Those badges are not collapsed or faded
-	This makes buttons that do dissapear have a lot more consistent animation
+	Some pages contain a special badge like "Not Secure", "Firefox", and "Extension(<name>)"
+	Those badges are not collapsed
+	This makes icons that do get hidden have a more consistent reveal animation
 */
-#identity-box:not(.notSecure):not(.extensionPage):not(.chromeUI):not(.certErrorPage),
-#page-action-buttons
-{
+#identity-box:not(.notSecure):not(.extensionPage):not(.chromeUI):not(.certErrorPage), /* Lock, permissions, location icons. Skipping special badges */
+#page-action-buttons { /* Right side icons like favorites */
 	opacity: 0;
-	max-width: 1px; /* Can't be zero width */
+	max-width: 0px;
+	
+	/* Expand / collapse animation that is triggered on navigation bar hover */
 	transition:
-		opacity .4s ease-in-out,
+		opacity .6s ease-in-out,
 		max-width .6s ease-out;
-	overflow: hidden; /* Buttons don't overflow their parent container as it shrinks */
+	overflow: hidden; /* Icons don't overflow their parent container as it shrinks */
 }
-/* Identity box is the left side: info and permissions; together they are ~57px wide */
+
+/* Separate hiding configuration for the shield icon because it's designed goofy */
+#tracking-protection-icon-container { /* Shield icon */
+	opacity: 0;
+	max-width: 0px;
+	padding-inline: 0px !important; /* Unlike other elements on the URL bar, this one has padding, and I need to animate it too */
+	transition:
+		opacity .6s ease-in-out,
+		max-width .3s ease-out, /* Faster expand because the container is smaller */
+		padding-inline .3s ease-out;
+}
+
+/* Reveal shield icon on hover */
 /*
-	The :not(:has(#customizationui-widget-panel:hover) part excludes hovering over pop up windows
-	which are for some reason considered to be part of the nav bar
+	Icons are revealed when the user hovers anywhere at the top - the navigator toolbox
+	The :not(:has(#customizationui-widget-panel:hover) part excludes All-tabs pop up window
+	All-tabs pop up window is the only pop up that is part of the navigator toolbox
 */
+#navigator-toolbox:hover:not(:has(#customizationui-widget-panel:hover)) #tracking-protection-icon-container
+{
+	max-width: 28px; /* Exact icon width */
+	padding-inline: var(--urlbar-icon-padding) !important; /* Reintroduce padding I collapsed, it is critical to icon appearance */
+	opacity: 1;
+}
+
+/* Reveal lock, permission, and location icons on hover */
 #navigator-toolbox:hover:not(:has(#customizationui-widget-panel:hover)) #identity-box:not(.notSecure):not(.extensionPage):not(.chromeUI):not(.certErrorPage)
 {
-	max-width: 57px;
+	max-width: 76px; /* Lock, permissions, and location take up 76px together */
 	opacity: 1;
 }
-/* Page action buttons are right side */
-/*
-	Massive width creates an effect of fading out first and THEN collapsing - looks much better
 
-	The :not(:has(#customizationui-widget-panel:hover) part excludes hovering over pop up windows
-	which are for some reason considered to be part of the nav bar
-*/
+/* Reveal right side icons on hover */
 #navigator-toolbox:hover:not(:has(#customizationui-widget-panel:hover)) #page-action-buttons
 {
-	max-width: 500px; 
+	max-width: 500px; /* Massive max-width creates an effect of fading out first and THEN collapsing - looks much better */
 	opacity: 1;
 }
+
+
+
+
+
+
+/* ------------------------------------ ... ------------------------------------ */
+
+
+
 
 /* Custom new tab favicon and a favicon for pages that don't provide any */
 /*
@@ -323,6 +409,13 @@ findbar{height: 90px !important}}
 			content: url("icons/circle-white.png") !important;
 		}
 	}
+	/* Remove color from the URL shield icon by making it black and inverting into white */
+	.urlbar-input-container[pageproxystate="valid"] > #tracking-protection-icon-container > #tracking-protection-icon-box {
+    &[active] {
+      filter: brightness(0) invert(1);
+    }
+  }
+
 }
 :root[style*="--toolbarbutton-icon-fill: rgb(0, 0, 0)"] /* If toolbar buttons are black... */
 {
@@ -336,11 +429,15 @@ findbar{height: 90px !important}}
 			content: url("icons/circle-black.png") !important;
 		}
 	}
+	/* Remove color from the URL shield icon by making it black */
+	 #tracking-protection-icon-box {
+    filter: brightness(0);
+  }
 }
 
 /* Disable default behavior of hiding a favicon for pages that don't provide one */
 	#tabbrowser-tabs[orient="horizontal"] .tab-icon-image:not([src]) {
-    display: inline !important;
+	display: inline !important;
 }
 	
 /* Increase width of sidebar: bookmark, history, etc. NOT the vertical taskbar that sidebar pops out of */
@@ -350,7 +447,9 @@ findbar{height: 90px !important}}
 
 
 
-/* ------------------------------------ URL bar adjustments ------------------------------------
+
+/* ------------------------------------ URL bar colors & border ------------------------------------ */
+
 
 
 
@@ -395,10 +494,18 @@ findbar{height: 90px !important}}
 #urlbar:not([focused]):not([open]) > .urlbar-background {
 	border-color: #0000 !important;
 }
+	
+/*  Removes dead space on the left and right of the URL bar  */
+#urlbar-container {
+	margin-left: 1px !important;
+	margin-right: 1px !important;
+}
 
 
 
-/* ------------------------------------ ... ------------------------------------
+
+/* ------------------------------------ ... ------------------------------------ */
+
 
 
 
@@ -411,3 +518,12 @@ findbar{height: 90px !important}}
 		box-shadow: none !important;
 	}
 }
+
+/* Remove gamer rainbow separator from application menu */
+.PanelUI-subView {
+  & toolbarseparator.proton-zap::before {
+    border-image: none !important;
+  }
+}
+
+
